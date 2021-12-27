@@ -3,7 +3,6 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import AppBar from '@mui/material/AppBar';
 
-
 export default function LibraryAppBar() {
     return (
         <Box sx={{ flexGrow: 1 }}>
