@@ -10,19 +10,18 @@ import { CardHeader } from '@mui/material';
 export default function BookInfo({ book = {} }) {
     return (
         <Card sx={{ maxWidth: 345 }}>
-            { <CardMedia
+            <CardMedia
                 component="img"
                 height="140"
                 image="/static/images/cards/contemplative-reptile.jpg"
                 alt="green iguana"
-            /> }
+            />
             {/* is the book has a img? */}
-
-            <CardHeader disableTypography title={<Typography gutterBottom variant="h5">
-                {book.title}
-            </Typography>} />
-
             <CardContent>
+
+                <Typography gutterBottom variant="h5" component="div">
+                    {book.title}
+                </Typography>
 
                 <Typography variant="body2" color="text.secondary">
                     Author:{book.authors?.map(author => <Typography component="span">{author}</Typography>)}
