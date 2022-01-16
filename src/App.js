@@ -1,11 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
 import LibraryAppBar from './AppBar'
-import NoBooks from './NoBooks';
 function App() {
   return (
     <div className="App">
-    <NoBooks/>
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload. Deploy-work!
+        </p>
+      </header>
     </div> 
   );
 }
