@@ -7,7 +7,7 @@ import { styled } from '@mui/material/styles';
 
 export default function Switch(){
     const [borrowed,setBorrowed] =useState(false);
-    const IsBorrow= ()=>{
+    const isBorrowed= ()=>{
         if(borrowed)
             setBorrowed(false);
         else setBorrowed(true);
@@ -58,7 +58,7 @@ export default function Switch(){
         <Stack direction="row" spacing={1} alignItems="center">
             <Typography>borrowed</Typography>
             <AntSwitch 
-            onChange={IsBorrow}
+            onChange={isBorrowed}
             checked={borrowed} />
             <Typography>free</Typography>
         </Stack>

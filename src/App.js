@@ -1,6 +1,5 @@
 import logo from './logo.svg';
 import './App.css';
-import SwitchBorrowed from './Switch';
 
 function App() {
   return (
