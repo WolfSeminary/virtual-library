@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import books from './Books' 
 ReactDOM.render(
   <React.StrictMode>
+    <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );
