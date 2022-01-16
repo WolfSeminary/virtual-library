@@ -1,12 +1,10 @@
 
 import './App.css';
-import APIbook from './APIbook';
 function App() {
 
 
   return (
     <div className="App">
-      <APIbook/>
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
