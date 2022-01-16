@@ -16,44 +16,31 @@ export default function BookInfo({ book = {} }) {
                 image="/static/images/cards/contemplative-reptile.jpg"
                 alt="green iguana"
             />
-            {/* is the book has a img? */}
+            <CardHeader disableTypography title={<Typography gutterBottom variant="h5">{book.title}</Typography>} />
             <CardContent>
-
-                <Typography gutterBottom variant="h5" component="div">
-                    {book.title}
-                </Typography>
-
                 <Typography variant="body2" color="text.secondary">
                     Author:{book.authors?.map(author => <Typography component="span">{author}</Typography>)}
-                    {/*whats the type of authors? Array or string*/}
                 </Typography>
-
                 <Typography variant="body2" color="text.secondary">
                     Publisher:{book.publisher}
                 </Typography>
-
                 <Typography variant="body2" color="text.secondary">
                     Published Date:{book.publishedDate}
                 </Typography>
-
                 <Typography variant="body2" color="text.secondary">
                     Description:{book.description}
                 </Typography>
-
                 <Typography variant="body2" color="text.secondary">
                     Num of Pages :{book.pageCount}
                 </Typography>
-
                 <Typography variant="body2" color="text.secondary">
                     Language  :{book.language}
                 </Typography>
-
             </CardContent>
             <CardActions>
                 <Button size="small">Share</Button>
                 <Button size="small">Learn More</Button>
             </CardActions>
-
         </Card>
     );
 }
