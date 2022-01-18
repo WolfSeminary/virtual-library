@@ -1,7 +1,7 @@
 import React from "react"
 import { useEffect } from "react"
 
-export function APIbook() {
+export function Books() {
   useEffect(() => {
     fetch(`https://www.googleapis.com/books/v1/volumes?q=Android&&maxResults=40`).then(response => response.json()).then(
       data => {
