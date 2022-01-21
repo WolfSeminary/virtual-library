@@ -6,8 +6,13 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { CardHeader } from '@mui/material';
+import BacktoBooks from './Back to Books';
 
-export default function BookInfo({ book = {} }) {
+export default function BookInfo({ book = {} }, { history }) {
+    let navigate = useNavigate();
+    const goToBook = () => {
+        navigate("/Book");
+    }
     return (
         <Card sx={{ maxWidth: 345 }}>
             <CardMedia
@@ -41,6 +46,8 @@ export default function BookInfo({ book = {} }) {
                 <Button size="small">Share</Button>
                 <Button size="small">Learn More</Button>
             </CardActions>
+            <BacktoBooks />
         </Card>
+
     );
 }
