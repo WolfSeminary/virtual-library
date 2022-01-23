@@ -48,9 +48,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export default function SearchBooks() {
   return (
     <Search>
-      <SearchIconWrapper>
-        <SearchIcon />
-      </SearchIconWrapper>
+      <SearchIconWrapper >
+        <SearchIcon onClick={e => onSearch(e.target.value)} />
+      </SearchIconWrapper >
       <StyledInputBase
         placeholder="Search…"
         inputProps={{ 'aria-label': 'search' }}
