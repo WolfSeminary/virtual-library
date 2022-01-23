@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { CardHeader } from '@mui/material';
 import BacktoBooks from './Back to Books';
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function BookInfo({ book = {} }, { history }) {
     let navigate = useNavigate();
@@ -47,7 +47,7 @@ export default function BookInfo({ book = {} }, { history }) {
                 <Button size="small">Share</Button>
                 <Button size="small">Learn More</Button>
             </CardActions>
-            <BacktoBooks onClick={goToBook}/>
+            <BacktoBooks onClick={goToBook} />
         </Card>
 
     );

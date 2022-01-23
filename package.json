@@ -6,6 +6,11 @@
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    "@mui/material": "^5.2.5",
+    "@mui/styled-engine-sc": "^5.1.0",
+>>>>>>> origin/master
 =======
     "@mui/material": "^5.2.5",
     "@mui/styled-engine-sc": "^5.1.0",
