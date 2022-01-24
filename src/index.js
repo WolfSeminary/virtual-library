@@ -6,8 +6,6 @@ import reportWebVitals from './reportWebVitals';
 import BooksStatus from './BooksStatus';
 
 ReactDOM.render(
-  // <React.StrictMode>
-  // </React.StrictMode>,
   <BooksStatus />,
   <React.StrictMode>
     <App />
