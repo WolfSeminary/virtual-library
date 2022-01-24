@@ -12,15 +12,21 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
+const getBooksStatus = () => {
+  setShouldModalOpen(true);
+}
+
 export default function NestedGrid() {
+  const [shouldModalOpen, setShouldModalOpen] = useState(false);
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={1}>
-          {books.map(book=>
-            <Grid item xs={4}>
+        {books.map(book =>
+          <Grid item xs={4}>
             <Item>Item</Item>
+            {shouldModalOpen && <BooksStatusModal />}
           </Grid>
-         )}      
+        )}
       </Grid>
     </Box>
   );
