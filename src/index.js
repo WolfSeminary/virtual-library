@@ -8,9 +8,10 @@ import BooksStatus from './BooksStatus';
 ReactDOM.render(
   // <React.StrictMode>
   // </React.StrictMode>,
-  <BooksStatus/>,
+  <BooksStatus />,
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
   document.getElementById('root')
 );
-
-
 reportWebVitals();
