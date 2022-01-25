@@ -5,7 +5,6 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 //( book) קבלתי קוד שמתבסס על ביצוע של בנות אחרות
 //עשיתי כמיטב יכולתי מחכה להמשך הוראות
-const [bookstatus,setBookstatus]=React.useState("free");
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
   padding: theme.spacing(1),
