@@ -16,7 +16,7 @@ const style = {
     p: 4,
 };
 
-export default function BooksStatusModal({freeBooks,borrowedBooks}) {
+export default function BooksStatusModal({ freeBooks, borrowedBooks }) {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
