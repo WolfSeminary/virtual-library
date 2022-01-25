@@ -7,13 +7,12 @@ export function Books() {
   useEffect(() => {
     fetch(`https://www.googleapis.com/books/v1/volumes?q=Android&&maxResults=40`).then(response => response.json()).then(
       data => {
-        setBooks(data)
+        setBooks(data.items)
       }
     )
   }, [])
   const ifNoBooks = () => {
-    if (books != [])
-      return <NoBooks />
+    {!books.length&&<NoBooks />}
   }
   const onSearch = (valueOfSearch) => {
     setSearchTerm(valueOfSearch);
