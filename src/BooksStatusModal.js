@@ -16,7 +16,7 @@ const style = {
     p: 4,
 };
 
-export default function BooksStatusModal() {
+export default function BooksStatusModal({freeBooks,borrowedBooks}) {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -35,10 +35,10 @@ export default function BooksStatusModal() {
                         Library - Books Status
                     </Typography>
                     <Typography id="modal-modal-description1" sx={{ mt: 2 }}>
-                        Free Books:
+                        Free Books:{freeBooks}
                     </Typography>
                     <Typography id="modal-modal-description2" sx={{ mt: 2 }}>
-                        Borrowed Books:
+                        Borrowed Books:{borrowedBooks}
                     </Typography>
                 </Box>
             </Modal>
