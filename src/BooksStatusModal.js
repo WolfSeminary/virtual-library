@@ -16,8 +16,8 @@ const style = {
     p: 4,
 };
 
-export default function BasicModal(prop1, prop2) {
-    const [open, setOpen] = React.useState(false);
+export default function BooksStatusModal() {
+    const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
