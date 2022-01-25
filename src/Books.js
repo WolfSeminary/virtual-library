@@ -24,7 +24,7 @@ export default function NestedGrid() {
       <Grid container spacing={1}>
         {books.map(book =>
           <Grid item xs={4}>
-            <div onClick={onBookClick(book.id)}>{book}</div>
+            <div onClick={()=>onBookClick(book.id)}>{book}</div>
           </Grid>
         )}
       </Grid>
