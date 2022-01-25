@@ -1,4 +1,4 @@
-import  React,{useState} from 'react';
+import React, { useState } from 'react';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
@@ -15,6 +15,9 @@ const Item = styled(Paper)(({ theme }) => ({
 const getBooksStatus = () => {
   setShouldModalOpen(true);
 }
+const onClose = () => {
+  setShouldModalOpen(false);
+}
 
 export default function NestedGrid() {
   const [shouldModalOpen, setShouldModalOpen] = useState(false);
@@ -24,6 +27,7 @@ export default function NestedGrid() {
         {books.map(book =>
           <Grid item xs={4}>
             <Item>Item</Item>
+            {/*TODO: need to create modal */}
             {shouldModalOpen && <BooksStatusModal />}
           </Grid>
         )}
