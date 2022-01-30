@@ -19,6 +19,14 @@ export default function NestedGrid() {
   function onBookClick(id) {
     navigate(`/bookInfo/${id}`);
   }
+  const [books, setBooks] = useState([])
+  useEffect(() => {
+    fetch("https://www.googleapis.com/books/v1/volumes?q=Android&&maxResults=40")
+      .then((res) => res.json())
+      .then((res) => {
+        setBooks(res.items.map(book => ({ ...book, status: "free" })))
+      })
+  }, [])
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={1}>
