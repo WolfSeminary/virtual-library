@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
@@ -17,15 +17,15 @@ const style = {
 };
 
 export default function BooksStatusModal() {
-    const [open, setOpen] = useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+    const [shouldModalOpen, setShouldModalOpen] = useState(false);
+    const handleOpen = () => setShouldModalOpen(true);
+    const handleClose = () => setShouldModalOpen(false);
 
     return (
         <div>
             <Button onClick={handleOpen}>library status</Button>
             <Modal
-                open={open}
+                open={shouldModalOpen}
                 onClose={handleClose}
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"

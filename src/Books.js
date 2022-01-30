@@ -1,9 +1,11 @@
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
+import BooksStatusModal from "./BooksStatusModal"
 import { useNavigate } from 'react-router-dom';
+import Book from './Book';
 
 //( book) קבלתי קוד שמתבסס על ביצוע של בנות אחרות
 //עשיתי כמיטב יכולתי מחכה להמשך הוראות
@@ -14,7 +16,7 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-export default function NestedGrid() {
+export default function Books() {
   let navigate = useNavigate();
   function onBookClick(id) {
     navigate(`/bookInfo/${id}`);
@@ -31,12 +33,12 @@ export default function NestedGrid() {
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={1}>
         {books.map(book =>
-          <Grid item xs={4} key={item.id}>
-            <div onClick={()=>onBookClick(book.id)}>{book}</div>
+          <Grid item xs={4} key={book.id}>
+            <div onClick={() => onBookClick(book.id)}><Book book={book}/></div>
+            <BooksStatusModal />
           </Grid>
         )}
       </Grid>
     </Box>
-
   );
 }
