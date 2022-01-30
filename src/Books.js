@@ -1,9 +1,12 @@
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
-import BooksStatusModal from './BooksStatusModal';
+import BooksStatusModal from "./BooksStatusModal"
+import { useNavigate } from 'react-router-dom';
+import Book from './Book';
+
 //( book) קבלתי קוד שמתבסס על ביצוע של בנות אחרות
 //עשיתי כמיטב יכולתי מחכה להמשך הוראות
 const Item = styled(Paper)(({ theme }) => ({
@@ -13,19 +16,30 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-export default function NestedGrid() {
-  const borrowedBooks = books.filter(i => i.status = "borrowed");
-  const freeBooks = books.filter(i => i.status = "free");
-
+export default function Books() {
+  let navigate = useNavigate();
+  function onBookClick(id) {
+    navigate(`/bookInfo/${id}`);
+  }
+  const [books, setBooks] = useState([])
+  useEffect(() => {
+    fetch("https://www.googleapis.com/books/v1/volumes?q=Android&&maxResults=40")
+      .then((res) => res.json())
+      .then((res) => {
+        setBooks(res.items.map(book => ({ ...book, status: "free" })))
+      })
+  }, [])
+  const borrowedBooks = books.filter(i => i.status === "borrowed");
+  const freeBooks = books.filter(i => i.status === "free");
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={1}>
         {books.map(book =>
-          <Grid item xs={4}>
-            <Item>Item</Item>
+          <Grid item xs={4} key={book.id}>
+            <div onClick={() => onBookClick(book.id)}><Book book={book} /></div>
+            <BooksStatusModal borrowedBooks={borrowedBooks} freeBooks={freeBooks} />
           </Grid>
         )}
-        <BooksStatusModal borrowedBooks={borrowedBooks} freeBooks={freeBooks} />
       </Grid>
     </Box>
   );
