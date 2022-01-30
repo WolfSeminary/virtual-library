@@ -5,7 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 
-export default function MediaCard() {
+export default function Book() {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia

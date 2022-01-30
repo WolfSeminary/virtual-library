@@ -4,6 +4,9 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import BooksStatusModal from "./BooksStatusModal"
+import { useNavigate } from 'react-router-dom';
+import Book from './Book';
+
 //( book) קבלתי קוד שמתבסס על ביצוע של בנות אחרות
 //עשיתי כמיטב יכולתי מחכה להמשך הוראות
 const Item = styled(Paper)(({ theme }) => ({
@@ -14,6 +17,10 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default function Books() {
+  let navigate = useNavigate();
+  function onBookClick(id) {
+    navigate(`/bookInfo/${id}`);
+  }
   const [books, setBooks] = useState([])
   useEffect(() => {
     fetch("https://www.googleapis.com/books/v1/volumes?q=Android&&maxResults=40")
@@ -26,9 +33,9 @@ export default function Books() {
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={1}>
         {books.map(book =>
-          <Grid item xs={4}>
-            <Item>Item</Item>
-            <BooksStatusModal/>
+          <Grid item xs={4} key={book.id}>
+            <div onClick={() => onBookClick(book.id)}><Book book={book}/></div>
+            <BooksStatusModal />
           </Grid>
         )}
       </Grid>
