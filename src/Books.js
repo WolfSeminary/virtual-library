@@ -12,22 +12,22 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-const getBooksStatus = () => {
-  setShouldModalOpen(true);
-}
-const onClose = () => {
-  setShouldModalOpen(false);
-}
+
 
 export default function NestedGrid() {
   const [shouldModalOpen, setShouldModalOpen] = useState(false);
+  const getBooksStatus = () => {
+    setShouldModalOpen(true);
+  }
+  const onClose = () => {
+    setShouldModalOpen(false);
+  }
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={1}>
         {books.map(book =>
           <Grid item xs={4}>
             <Item>Item</Item>
-            {/*TODO: need to create modal */}
             {shouldModalOpen && <BooksStatusModal />}
           </Grid>
         )}
