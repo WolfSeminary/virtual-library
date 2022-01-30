@@ -23,7 +23,7 @@ export default function NestedGrid() {
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={1}>
         {books.map(book =>
-          <Grid item xs={4}>
+          <Grid item xs={4} key={item.id}>
             <div onClick={()=>onBookClick(book.id)}>{book}</div>
           </Grid>
         )}
