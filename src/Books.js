@@ -3,6 +3,8 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
+import { useNavigate } from 'react-router-dom';
+
 //( book) קבלתי קוד שמתבסס על ביצוע של בנות אחרות
 //עשיתי כמיטב יכולתי מחכה להמשך הוראות
 const Item = styled(Paper)(({ theme }) => ({
@@ -13,6 +15,10 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default function NestedGrid() {
+  let navigate = useNavigate();
+  function onBookClick(id) {
+    navigate(`/bookInfo/${id}`);
+  }
   const [books, setBooks] = useState([])
   useEffect(() => {
     fetch("https://www.googleapis.com/books/v1/volumes?q=Android&&maxResults=40")
@@ -24,12 +30,13 @@ export default function NestedGrid() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={1}>
-          {books.map(book=>
-            <Grid item xs={4}>
-            <Item>Item</Item>
+        {books.map(book =>
+          <Grid item xs={4} key={item.id}>
+            <div onClick={()=>onBookClick(book.id)}>{book}</div>
           </Grid>
-         )}      
+        )}
       </Grid>
     </Box>
+
   );
 }
