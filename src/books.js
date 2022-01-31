@@ -11,15 +11,12 @@ export function Books() {
       }
     )
   }, [])
-  const ifNoBooks = () => {
-    {!books.length&&<NoBooks />}
-  }
   const onSearch = (valueOfSearch) => {
     setSearchTerm(valueOfSearch);
   }
   return (
     <>
-      {ifNoBooks()}
+     {!books.length&&<NoBooks />}
     </>
   )
 }
