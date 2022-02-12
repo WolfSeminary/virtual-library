@@ -31,13 +31,12 @@ export default function Books() {
   const filterBooks = React.useCallback(() => {
     return books.filter(book => Object.keys(book).find(key => book[key].includes(searchTerm)))
   }, [searchTerm, books])
-
   const filteredBooks = filterBooks();
   const [differentTopic, setDifferentTopic] = useState();
   function onTopicChange(value) {
     setDifferentTopic(value);
   }
-  
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={1}>
