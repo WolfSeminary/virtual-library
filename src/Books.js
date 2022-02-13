@@ -7,8 +7,6 @@ import BooksStatusModal from "./BooksStatusModal"
 import { useNavigate } from 'react-router-dom';
 import Book from './Book';
 
-//( book) קבלתי קוד שמתבסס על ביצוע של בנות אחרות
-//עשיתי כמיטב יכולתי מחכה להמשך הוראות
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
   padding: theme.spacing(1),
@@ -31,6 +29,14 @@ export default function Books() {
   }, [])
   const borrowedBooks = books.filter(i => i.status === "borrowed");
   const freeBooks = books.filter(i => i.status === "free");
+
+  const filterBooks = React.useCallback(()=>{
+    return books.filter(book=>Object.keys(book).find(key=>book[key].includes(searchTerm)))
+  },[searchTerm,books])
+ 
+  const filteredBooks = filterBooks();
+
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={1}>
