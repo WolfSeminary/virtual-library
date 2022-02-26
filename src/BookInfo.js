@@ -6,20 +6,25 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { CardHeader } from '@mui/material';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { useLocation } from 'react-router';
 
-export default function BookInfo({ book = {} }) {
+
+export default function BookInfo() {
+    let book = useLocation().state;
     return (
         <Card sx={{ maxWidth: 345 }}>
             <CardMedia
                 component="img"
                 height="140"
-                image="/static/images/cards/contemplative-reptile.jpg"
+                image={book.url}
                 alt="green iguana"
             />
             <CardHeader disableTypography title={<Typography gutterBottom variant="h5">{book.title}</Typography>} />
+
             <CardContent>
                 <Typography variant="body2" color="text.secondary">
-                    Author:{book.authors?.map(author => <Typography component="span">{author}</Typography>)}
+                    Author:{book.authors ? book.authors.map(author => <Typography component="span">{author}</Typography>) : null}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                     Publisher:{book.publisher}
@@ -38,8 +43,10 @@ export default function BookInfo({ book = {} }) {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small">Share</Button>
-                <Button size="small">Learn More</Button>
+
+              
+                <Button variant="outlined">  <ArrowBackIcon></ArrowBackIcon>Back to Books</Button>
+
             </CardActions>
         </Card>
     );

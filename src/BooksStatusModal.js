@@ -16,17 +16,16 @@ const style = {
     p: 4,
 };
 
-export default function BooksStatusModal() {
-    const [shouldModalOpen, setShouldModalOpen] = useState(false);
-    const handleOpen = () => setShouldModalOpen(true);
-    const handleClose = () => setShouldModalOpen(false);
+export default function BooksStatusModal({ freeBooks, borrowedBooks, shouldModalOpen, setShouldModalOpen }) {
+
+
 
     return (
         <div>
-            <Button onClick={handleOpen}>library status</Button>
+
             <Modal
                 open={shouldModalOpen}
-                onClose={handleClose}
+                onClose={() => { setShouldModalOpen(false) }}
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
@@ -35,10 +34,10 @@ export default function BooksStatusModal() {
                         Library - Books Status
                     </Typography>
                     <Typography id="modal-modal-description1" sx={{ mt: 2 }}>
-                        Free Books:
+                        Free Books:{freeBooks.length}
                     </Typography>
                     <Typography id="modal-modal-description2" sx={{ mt: 2 }}>
-                        Borrowed Books:
+                        Borrowed Books:{borrowedBooks.length}
                     </Typography>
                 </Box>
             </Modal>
